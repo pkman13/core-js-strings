@@ -337,8 +337,10 @@ function countVowels(str) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const strLowCase = str.toLowerCase().replace(/[^a-z]/g, '');
+  const strRevers = strLowCase.split('').reverse().join('');
+  return strLowCase === strRevers;
 }
 
 /**
@@ -367,8 +369,10 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const words = str.split(' ');
+  const reverseWord = words.map((word) => word.split('').reverse().join(''));
+  return reverseWord.join(' ');
 }
 
 /**
@@ -382,8 +386,21 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  const words = str.split(' ');
+  const invertsWords = words.map((word) => {
+    if (/[a-zA-Z]/.test(word)) {
+      return word
+        .split('')
+        .map((char) =>
+          char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
+        )
+        .join('');
+    }
+    return word;
+  });
+  return invertsWords.join(' ');
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -399,8 +416,8 @@ function invertCase(/* str */) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
+function getStringFromTemplate(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -447,8 +464,10 @@ function unbracketTag(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  const arrayEmails = str.split(';');
+  arrayEmails.map((email) => email.trim());
+  return arrayEmails;
 }
 
 /**
