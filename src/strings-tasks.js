@@ -430,8 +430,9 @@ function getStringFromTemplate(firstName, lastName) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  const name = value.match(/Hello, (.+?)!/);
+  return name ? name[1] : '';
 }
 
 /**
@@ -445,8 +446,8 @@ function extractNameFromTemplate(/* value */) {
  *   unbracketTag('<span>') => 'span'
  *   unbracketTag('<a>') => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  return str.slice(1, -1);
 }
 
 /**
@@ -487,6 +488,18 @@ function extractEmails(str) {
  *
  */
 function encodeToRot13(/* str */) {
+  // const alfabetLower = 'abcdefghijklmnopqrstuvwxyz';
+  // const alfabetUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  // return str.replace(/[A-Za-z]/g, function (char) {
+  //   const isUpperChar = char === alfabetUpper;
+  //   const alfabet = isUpperChar ? alfabetUpper : alfabetLower;
+  //   const index = alfabet.indexOf(char);
+  //   if (index !== -1) {
+  //     const shifledIndex = (index + 13) % alfabet.length;
+  //     return alfabet[shifledIndex];
+  //   }
+  //   return char;
+  // });
   throw new Error('Not implemented');
 }
 
